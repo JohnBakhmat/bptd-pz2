@@ -1,0 +1,9 @@
+/node_modules
+
+# vscode 
+.vscode
+
+# yarn
+.yarn-integrity
+# mac
+.DS_Store
