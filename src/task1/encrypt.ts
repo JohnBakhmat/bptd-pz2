@@ -32,9 +32,26 @@ enum Action {
 }
 
 export const encrypt = (text: string, key: string) => {
-  return proceed(text, key, Action.ENCRYPT);
+  //Convert args to uppercase
+  text = text.toUpperCase();
+  //Remove spaces characters
+  text = text.replace(/[Й]/g, "И");
+  const result = text.split(" ").map((word) => {
+    const isNumbers = !isNaN(parseInt(word));
+    if (isNumbers) {
+      return word;
+    }
+    const textInNumbers = toNumbers(word);
+    return proceed(textInNumbers, key, Action.ENCRYPT);
+  });
+
+  return result.join(" ");
 };
 export const decrypt = (text: string, key: string) => {
-  const decrypted = proceed(text, key, Action.DECRYPT);
-  return toLetters(decrypted);
+  const textArray = text.split(" ");
+  const result = textArray.map((word) => {
+    return proceed(word, key, Action.DECRYPT);
+  });
+
+  return result.map(toLetters).join(" ");
 };
