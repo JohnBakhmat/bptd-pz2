@@ -8,6 +8,7 @@
     "task2": "ts-node src/task2"
   },
   "dependencies": {
+    "chalk": "^4",
     "ts-node": "^10.9.1"
   }
 }
