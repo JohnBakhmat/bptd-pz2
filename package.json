@@ -6,5 +6,8 @@
   "scripts": {
     "task1": "ts-node src/task1",
     "task2": "ts-node src/task2"
+  },
+  "dependencies": {
+    "ts-node": "^10.9.1"
   }
 }
